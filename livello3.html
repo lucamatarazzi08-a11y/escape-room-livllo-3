@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Monte Cieco · Livello 3 · La Sala Cifrari</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=IM+Fell+English:ital@0;1&display=swap">
+<style>
+:root{color-scheme:dark;--desk:#0d1914;--desk2:#16291f;--paper:#ece3c9;--paper2:#ddd2b0;--ink:#1c1912;--ink2:#5a513b;--brass:#b8893a;--brass2:#d9a94e;--red:#a62b22;--grn:#2d6a4d;
+--mono:"Cutive Mono","Courier New",monospace;--serif:"IM Fell English",Georgia,serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:radial-gradient(900px 500px at 50% -10%,#24432f,transparent 70%),repeating-linear-gradient(90deg,#0d1914 0 3px,#0f1d17 3px 6px);background-color:var(--desk);color:var(--ink);font-family:var(--mono);font-size:16px;line-height:1.6}
+header{position:sticky;top:0;z-index:5;background:#0a140f;border-bottom:3px double var(--brass);display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 14px;color:#e9dcb4}
+.logo{font-family:var(--serif);font-style:italic;font-size:1.05rem;letter-spacing:.04em}
+.lamps{display:flex;gap:8px}
+.lamp{width:26px;height:26px;border-radius:50%;border:2px solid #5a4a28;background:#1a150b;color:#6b5a33;font-size:.7rem;display:flex;align-items:center;justify-content:center;transition:.4s}
+.lamp.on{background:radial-gradient(circle at 35% 30%,#ffe9a8,var(--brass2) 55%,#7a5a1c);color:#2a1d05;border-color:#ffd97a;box-shadow:0 0 14px #ffcf6a99}
+.roll{position:relative;max-width:720px;margin:22px auto 60px;background:linear-gradient(90deg,#e2d8b9,var(--paper) 6%,var(--paper) 94%,#e2d8b9);padding:8px 46px 30px;box-shadow:0 0 0 1px #00000040,0 30px 70px #000c}
+.roll::before,.roll::after{content:"";position:absolute;top:0;bottom:0;width:22px;background:radial-gradient(circle,#0d1914 4.5px,transparent 5.5px) center top/22px 28px repeat-y}
+.roll::before{left:0}.roll::after{right:0}
+@media(max-width:560px){.roll{padding:8px 30px 24px;margin:12px 6px 40px}.roll::before,.roll::after{width:16px;background-size:16px 24px}}
+.sheet{display:none;padding:24px 0 28px;border-bottom:2px dashed #b3a77f}
+.sheet.on{display:block;animation:feed .8s ease-out}
+@keyframes feed{from{opacity:0;transform:translateY(-26px)}}
+.stage{font-family:var(--serif);font-style:italic;font-size:1.5rem;color:var(--red);margin:0 0 10px;line-height:1.2}
+h1{font-family:var(--serif);font-weight:400;font-size:2.3rem;line-height:1.1;margin:6px 0 10px}
+p{margin:.6em 0}
+.stamp{display:inline-block;border:3px double var(--red);color:var(--red);padding:3px 12px;transform:rotate(-4deg);letter-spacing:.2em;font-size:.9rem;margin-bottom:8px;opacity:.85}
+.note{background:var(--paper2);border-left:5px solid var(--brass);padding:12px 15px;margin:12px 0;font-size:.93rem;line-height:1.6}
+.log{background:#17120a;color:#ffd97a;padding:14px 16px;min-height:150px;font-size:.92rem;border:2px solid #3a2f17;white-space:pre-wrap}
+.log::after{content:"█";animation:bl 1s steps(2) infinite}@keyframes bl{50%{opacity:0}}
+.tape{background:#f8f2de;border:1px solid #bdb08a;box-shadow:inset 0 0 0 4px #f8f2de,inset 0 0 0 5px #d3c79f;padding:14px 16px;font-size:1.1rem;letter-spacing:.14em;word-break:break-word;margin:10px 0;min-height:3.4em}
+.tape.out{background:#e6efe0;border-color:#8fae93;color:#1f4a33}
+.btn,button.btn{font-family:var(--mono);font-size:.95rem;background:var(--brass);color:#1c1405;border:2px solid #1c1912;padding:9px 16px;cursor:pointer;text-decoration:none;display:inline-block;box-shadow:3px 3px 0 #1c1912;transition:transform .1s,box-shadow .1s}
+.btn:hover{background:var(--brass2)}.btn:active{transform:translate(3px,3px);box-shadow:0 0 0 #1c1912}.btn.sm{padding:5px 12px}.btn:disabled{opacity:.4;pointer-events:none}
+input[type=text]{font-family:var(--mono);font-size:1rem;background:#f8f2de;color:var(--ink);border:0;border-bottom:2px solid var(--ink);padding:8px 6px;outline:none;min-width:0}
+input[type=text]:focus{background:#fff7cc}
+.line{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:10px 0}.line input{flex:1 1 180px}
+.fb{margin:10px 0;padding:10px 13px;border-left:5px solid var(--brass);background:#e9dfbf;font-size:.93rem}
+.fb.g{border-color:var(--grn);background:#d9e7d2}.fb.b{border-color:var(--red);background:#ecd3c9}
+.lab{font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);margin:12px 0 -4px}
+.wheelbox{text-align:center;margin:14px 0}
+#wh{width:min(360px,100%);height:auto;filter:drop-shadow(0 8px 12px #0006);touch-action:none;cursor:grab}#wh:active{cursor:grabbing}
+#wh text{font-family:var(--mono);font-size:15px}
+#wh .wo{fill:#1c1912}#wh .wi{fill:#2a1d05;font-weight:bold}#wh .wa{fill:#fff;font-weight:bold}#wh .wc{fill:#d9a94e;font-size:11px;letter-spacing:.08em}
+.ctl{display:flex;gap:10px;align-items:center;justify-content:center;margin:8px 0}.ctl input{flex:0 1 240px;accent-color:var(--red)}
+.al{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;justify-content:center}
+.col{text-align:center;background:#f3ebcf;border:1px solid #c4b78f;padding:6px 7px;width:58px}
+.col .c{font-size:1.5rem;color:var(--red)}.col .k{font-size:.95rem}.col .n{font-size:.72rem;color:var(--ink2)}
+.col input{width:38px;text-align:center;font-size:1.2rem;text-transform:uppercase;margin-top:4px;padding:3px 0}
+.col input.ok{background:#cfe4cc;border-color:var(--grn)}.col input.no{background:#efc9bf;border-color:var(--red)}
+details{margin:10px 0}summary{cursor:pointer;color:var(--red)}
+.vgw{overflow-x:auto;margin-top:8px}table.vg{border-collapse:collapse;font-size:.78rem}.vg td,.vg th{width:24px;height:24px;text-align:center;padding:0;border:1px solid #cdbf93}.vg th{background:var(--paper2)}.vg td.hr{background:#f3dca0}.vg td.hc{background:var(--red);color:#fff;font-weight:bold}.vg th.hh{background:var(--red);color:#fff}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(max-width:520px){.two{grid-template-columns:1fr}}
+.hx{font-size:.66rem;word-break:break-all;background:#17120a;color:#9fe3b8;padding:8px;margin-top:6px;min-height:3.2em;line-height:1.35}
+.hx b{color:#ff9f8f;font-weight:normal;text-decoration:underline}
+.qh{font-family:var(--serif);font-size:1.2rem;margin:14px 0 8px;color:#2a2314}
+.opt{display:block;width:100%;text-align:left;font-family:var(--mono);font-size:.92rem;background:#f3ebcf;color:var(--ink);border:1.5px solid #8a7d55;padding:10px 12px;margin:7px 0;cursor:pointer;line-height:1.45}
+.opt:hover:not(:disabled){background:#fff6c9;border-color:var(--ink)}.opt.right{background:#cfe4cc;border-color:var(--grn)}.opt.wrong{background:#efc9bf;border-color:var(--red);opacity:.8}
+.opt:disabled{cursor:default}
+.ocard{display:block;width:100%;text-align:left;font-family:var(--mono);background:#f3ebcf;color:var(--ink);border:1.5px solid #8a7d55;padding:10px 12px;margin:7px 0;cursor:pointer;font-size:.92rem;line-height:1.45}.ocard:hover:not(.done){background:#fff6c9;border-color:var(--ink)}.ocard.done{cursor:default;background:#cfe4cc;border-color:var(--grn)}.ocard.done span{display:inline-block;background:var(--grn);color:#fff;width:22px;text-align:center;margin-right:8px}.ocard small{display:block;color:var(--ink2);margin-top:4px;font-size:.8rem}
+.shake{animation:sh .4s}@keyframes sh{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.keys{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}@media(max-width:520px){.keys{grid-template-columns:1fr}}
+.keys div{background:#f3ebcf;border:1px solid #bdb08a;padding:10px 12px;font-size:.88rem}.keys b{display:block;color:var(--red);margin-bottom:4px}
+.code{font-family:var(--serif);font-size:1.9rem;letter-spacing:.14em;text-align:center;border:3px double var(--red);color:var(--red);padding:10px;margin:14px 0}
+ol.les{padding-left:1.2em}ol.les li{margin:.6em 0}
+.src{font-size:.78rem;color:var(--ink2);border-top:1px dashed #9b8f68;margin-top:14px;padding-top:8px}
+.hidden{display:none!important}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+ <div class="logo">Sala Cifrari · Monte Cieco</div>
+ <div class="lamps" title="Prove superate"><i class="lamp">I</i><i class="lamp">II</i><i class="lamp">III</i><i class="lamp">IV</i></div>
+</header>
+
+<main class="roll">
+<section class="sheet on" id="s0">
+ <div class="stamp">RISERVATO</div>
+ <h1>LIVELLO 3<br>La Sala Cifrari</h1>
+ <div class="log" id="log"></div>
+ <div class="note"><b>Di che cosa parla questo livello.</b> <b>Cifrare</b> un messaggio vuol dire trasformarlo in modo che solo chi conosce un segreto, la <b>chiave</b>, possa leggerlo. Serve a proteggere quello che passa su Internet: password, messaggi, pagamenti. Qui impari tre strumenti: i <b>cifrari</b> (nascondere un testo), l’<b>hash</b> (riconoscere una password senza conservarla) e le <b>chiavi pubbliche e private</b> (scambiarsi segreti con chi non hai mai incontrato).</div>
+ <p><button class="btn hidden" id="go0">Accendi la telescrivente →</button></p>
+</section>
+
+<section class="sheet" id="s1">
+ <div class="stage">Prova I · Il cifrario di Cesare</div>
+ <div class="note"><b>Cos’è un cifrario.</b> Un cifrario è una regola per trasformare un testo in uno illeggibile. Il più antico è quello di Cesare, usato dai generali romani: ogni lettera si sostituisce con quella che sta alcuni posti più avanti nell’alfabeto. Esempio con 3 posti: A diventa D, B diventa E, C diventa F. Il numero di posti è la <b>chiave</b>: chi lo conosce torna indietro e legge il testo.<br><b>A cosa serve questa prova:</b> capire cosa vuol dire “chiave” e vedere quanto è facile rompere un cifrario che ha poche chiavi possibili.</div>
+ <p>Dalla telescrivente esce un messaggio cifrato con il metodo di Cesare, ma <b>non sai di quanti posti</b> sono spostate le lettere.</p>
+ <p><b>Come si usa il disco:</b> la corona esterna mostra le lettere del messaggio cifrato; la corona interna, che ruoti con la barra, mostra la lettera vera che sta sotto. Ruota finché il testo in basso diventa un messaggio con senso.</p>
+ <div class="lab">Messaggio cifrato</div>
+ <div class="tape" id="ct1"></div>
+ <div class="wheelbox">
+  <svg id="wh" viewBox="-150 -150 300 300" role="img" aria-label="Disco cifrante"></svg>
+  <div class="ctl"><button class="btn sm" id="wm" aria-label="Indietro">◀</button><input type="range" id="wr" min="0" max="25" value="0" aria-label="Spostamento"><button class="btn sm" id="wp" aria-label="Avanti">▶</button></div>
+  <div>Spostamento: <b id="wn">0</b></div>
+  <div class="fb" id="wr2" style="margin:8px auto;max-width:420px"></div>
+  <div style="font-size:.82rem;color:var(--ink2)">Puoi anche trascinare la corona interna con il dito o il mouse.</div>
+ </div>
+ <div class="lab">Messaggio decifrato con questo spostamento</div>
+ <div class="tape out" id="dec1"></div>
+ <p>Quando il testo ha senso, la sua <b>ultima parola</b> è la chiave del prossimo cifrario. Scrivila qui:</p>
+ <div class="line"><input type="text" id="a1" autocomplete="off" spellcheck="false" placeholder="parola"><button class="btn" id="c1">Controlla</button></div>
+ <div id="f1"></div><div id="q1"></div>
+</section>
+
+<section class="sheet" id="s2">
+ <div class="stage">Prova II · Vigenère</div>
+ <div class="note"><b>Perché serve un cifrario migliore.</b> Con Cesare ogni lettera si sposta sempre dello stesso numero, quindi la stessa lettera diventa sempre la stessa. Contando quali lettere compaiono più spesso, si scopre il testo. Vigenère risolve così: al posto di un numero usa una <b>parola segreta</b> (la chiave). Ogni lettera della parola vale un numero: A=0, B=1, C=2 … Z=25. Quel numero dice di quanti posti spostare la lettera corrispondente del messaggio. Quando la parola finisce, ricomincia da capo.<br><b>Come si decifra:</b> per ogni lettera cifrata si torna indietro del numero della lettera di chiave che le sta sotto. Esempio: lettera cifrata D, chiave C (=2): D è la 3ª lettera, 3 − 2 = 1, cioè B.<br><b>A cosa serve questa prova:</b> capire perché una chiave fatta di più lettere protegge meglio di un solo numero.</div>
+ <p>Il secondo messaggio è cifrato con la parola che hai appena trovato. Scrivila come chiave per far comparire la tabella di lavoro.</p>
+ <div class="lab">Messaggio cifrato</div>
+ <div class="tape" id="ct2"></div>
+ <div class="line"><input type="text" id="kw" autocomplete="off" spellcheck="false" placeholder="chiave"><button class="btn" id="ck">Usa la chiave</button></div>
+ <div id="fk"></div>
+ <div class="al hidden" id="al"></div>
+ <details class="hidden" id="dt"><summary>Tavola di Vigenère: come usarla</summary><p style="font-size:.88rem">1) A sinistra cerca la riga della lettera della <b>chiave</b>. 2) Scorri quella riga fino alla lettera <b>cifrata</b>. 3) In cima a quella colonna c’è la lettera <b>in chiaro</b>. Quando clicchi una casella di risposta, la tavola colora per te la riga (giallo) e la lettera cifrata (rosso).</p><div class="vgw" id="vgw"></div></details>
+ <div id="f2"></div><div id="q2"></div>
+</section>
+
+<section class="sheet" id="s3">
+ <div class="stage">Prova III · L’impronta (hash)</div>
+ <div class="note"><b>A cosa serve un hash.</b> Quando ti registri su un sito, il sito non dovrebbe conservare la tua password: se qualcuno rubasse l’archivio, le leggerebbe tutte. Conserva invece una sua <b>impronta</b>: un codice di 64 caratteri che si ottiene dalla password con un calcolo (si chiama <b>hash</b>; qui usiamo SHA-256). Quando fai il login, il sito rifà il calcolo sulla password che scrivi e controlla se l’impronta è la stessa.<br><b>Tre regole:</b> 1) stessa password, stessa impronta; 2) basta una lettera diversa e l’impronta cambia completamente; 3) dall’impronta <b>non si può tornare</b> alla password.</div>
+ <p>Il messaggio diceva <b>ARCHIVIO</b>: è il file dove il server tiene le password di tutti. Prima prova tu il calcolo: scrivi nelle due caselle e guarda le impronte. Le cifre sottolineate sono quelle che cambiano.</p>
+ <div class="two">
+  <div><input type="text" id="ha" value="ciao" autocomplete="off" spellcheck="false" style="width:100%"><div class="hx" id="hao"></div></div>
+  <div><input type="text" id="hb" value="Ciao" autocomplete="off" spellcheck="false" style="width:100%"><div class="hx" id="hbo"></div></div>
+ </div>
+ <p id="hd" class="fb"></p>
+ <div class="note"><b>Il file ARCHIVIO.</b> Chi ruba un archivio così trova solo impronte. Per scoprire una password può fare una cosa sola: provare parole una alla volta, calcolarne l’impronta e confrontarla con quella rubata. Provaci tu. Accanto all’utente <b>e.marchetti</b> c’è questa impronta:<div class="hx" id="tg"></div>Sul diario Elia scrisse: «Non ho mai cambiato la password dell’archivio: è il nome di chi mi tiene compagnia la sera». Dagli appunti: <i>stella, cupola, faenza, galilei, briciola, luna</i>. Scrivi una parola alla volta: se l’impronta coincide, hai trovato la password.</div>
+ <div class="line"><input type="text" id="gs" autocomplete="off" spellcheck="false" placeholder="password da provare"><button class="btn" id="gb">Calcola e confronta</button></div>
+ <div class="hx hidden" id="go"></div><div id="f3"></div><div id="q3"></div>
+</section>
+
+<section class="sheet" id="s4">
+ <div class="stage">Prova IV · Chiavi e lucchetti</div>
+ <div class="note"><b>A cosa servono le chiavi.</b> Per cifrare un messaggio serve una chiave, e ci sono due modi di usarla.<br><b>Simmetrica:</b> la stessa chiave chiude e apre, come la chiave di casa. È veloce, ma se devi farla arrivare a una persona lontana, qualcuno potrebbe intercettarla.<br><b>Asimmetrica:</b> ognuno ha due chiavi. La chiave <b>pubblica</b> è come un lucchetto aperto che puoi dare a tutti: chiunque può chiudere un messaggio con quel lucchetto, ma solo chi ha la chiave <b>privata</b>, che non la dà a nessuno, può riaprirlo.<br><b>Due cose da sapere.</b> 1) I cifrari seri sono <b>pubblici</b>: li studiano migliaia di esperti che cercano di romperli. Il segreto sta nella chiave, non nel metodo. 2) Quando apri un sito con <b>https</b> e il lucchetto, il browser usa prima le chiavi pubblica e privata per mettersi d’accordo con il sito su una chiave segreta comune; poi usa quella, che è più veloce, per cifrare tutto. Il lucchetto dice che il collegamento è cifrato, ma <b>non</b> che il sito sia onesto.</div>
+ <p>Elia ti ha lasciato un messaggio segreto, ma una spia è in ascolto sulla linea di Monte Cieco. Per farlo arrivare senza che nessuno lo legga, rimetti in ordine le cinque fasi del viaggio: tocca le carte dalla prima all’ultima.</p>
+ <div id="ord"></div><div id="ordfb"></div>
+ <p id="qh4" class="hidden">Ora quattro domande per verificare di aver capito:</p>
+ <div id="q4"></div>
+</section>
+
+<section class="sheet" id="s5">
+ <div class="stage">Telescrivente spenta · il messaggio è decifrato</div>
+ <div class="stamp">DECIFRATO</div>
+ <h2 style="font-family:var(--serif);font-weight:400;font-size:1.5rem;margin:6px 0">Cosa hai imparato</h2>
+ <ol class="les">
+  <li><b>Cifrare</b> vuol dire nascondere un testo con una chiave; <b>decifrare</b> è tornare indietro. Il cifrario di Cesare ha solo 25 chiavi possibili: si provano tutte in pochi secondi (<b>forza bruta</b>).</li>
+  <li><b>Vigenère</b> è più forte perché la stessa lettera cambia a seconda della posizione. Ma se la chiave è corta si ripete e si rompe: come per le password, più è lunga, meglio è.</li>
+  <li>L’<b>hash</b> serve a controllare una password senza conservarla. Non si può invertire, ma si può provare a indovinare: per questo servono password lunghe e il <b>salt</b>.</li>
+  <li>Con la cifratura <b>simmetrica</b> la chiave è una sola (veloce, ma difficile da passare); con la <b>asimmetrica</b> ci sono una chiave pubblica e una privata (risolve lo scambio). Il lucchetto dell’HTTPS usa entrambe.</li>
+  <li>La sicurezza sta nella <b>chiave</b>, non nel segreto dell’algoritmo: si usano metodi pubblici e collaudati (AES, RSA, SHA-256), mai inventati in casa.</li>
+ </ol>
+ <div class="src">Per approfondire: NIST (standard su hash e cifrari), ENISA, ACN – Agenzia per la Cybersicurezza Nazionale (acn.gov.it).</div>
+ <p>Il tuo codice di sblocco per la serratura:</p>
+ <div class="code">CIFRARI-3</div>
+ <a class="btn" id="lock" href="#" target="_blank" rel="noopener">Apri la serratura →</a>
+ <p id="warn" class="hidden" style="color:var(--red)">(Link del Modulo non ancora inserito)</p>
+</section>
+</main>
+
+<script>
+// ====== DA MODIFICARE: link del Google Modulo del Livello 3 ======
+const FORM_URL = "https://forms.gle/3YZNoKGDLaM1pBao6";
+// =================================================================
+const $=id=>document.getElementById(id);
+const A="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const caesar=(t,s)=>t.replace(/[A-Z]/g,c=>A[(A.indexOf(c)+s%26+26)%26]);
+const vig=(t,k,dir)=>{let i=0;return t.replace(/[A-Z]/g,c=>A[(A.indexOf(c)+dir*A.indexOf(k[i++%k.length])+26)%26])};
+const lamp=i=>document.querySelectorAll(".lamp")[i].classList.add("on");
+function reveal(id){$(id).classList.add("on");setTimeout(()=>$(id).scrollIntoView({behavior:"smooth",block:"start"}),60)}
+function typeInto(el,text,ms,cb){el.textContent="";let i=0;(function f(){if(i<text.length){el.textContent+=text[i++];setTimeout(f,ms)}else if(cb)cb()})()}
+
+/* quiz generico: domande a scelta singola con spiegazione per ogni risposta */
+function quiz(el,Qs,done){let i=0;(function show(){const q=Qs[i],o=[...q.o].sort(()=>Math.random()-.5);
+ el.innerHTML=`<p class="qh">${q.h}</p>`+o.map((x,k)=>`<button class="opt" data-k="${k}">${x.t}</button>`).join("")+'<div class="fb hidden"></div>';
+ el.onclick=e=>{const b=e.target.closest(".opt");if(!b||b.disabled||el.dataset.lock)return;const x=o[+b.dataset.k],fb=el.querySelector(".fb");
+  b.disabled=true;fb.classList.remove("hidden");
+  if(x.ok){el.dataset.lock=1;b.classList.add("right");fb.className="fb g";
+   fb.innerHTML="✔ "+x.e+`<p><button class="btn" id="nq">${i<Qs.length-1?"Avanti →":"Continua →"}</button></p>`;
+   fb.querySelector("#nq").onclick=()=>{delete el.dataset.lock;if(i<Qs.length-1){i++;show()}else done()}}
+  else{b.classList.add("wrong");fb.className="fb b";fb.innerHTML="✖ "+x.e}}})()}
+
+/* ---------- intro ---------- */
+const LOG="> LINEA 3 · TELESCRIVENTE DI MONTE CIECO\n> Alle 02:41 è arrivato un messaggio cifrato dall’archivio di Elia.\n> Il server non risponde: legge solo chi sa decifrare.\n> Quattro prove: cifrari, hash, chiavi.\n";
+typeInto($("log"),LOG,22,()=>$("go0").classList.remove("hidden"));
+$("go0").onclick=()=>{$("go0").disabled=true;reveal("s1");startS1()};
+
+/* ---------- prova I · Cesare ---------- */
+const PL1="LA CHIAVE DEL PROSSIMO CIFRARIO E LUNA",CT1=caesar(PL1,11);
+const ST=360/26;let shift=0,ang=0,s1started=false;
+function drawWheel(){
+ let g='<circle r="147" fill="#1d170b"/><circle r="141" fill="#3a3019" stroke="#b8893a" stroke-width="2.5"/><circle r="140" fill="#ece3c9"/>';
+ for(let k=0;k<26;k++)g+=`<line transform="rotate(${(k+.5)*ST})" x1="0" y1="-112" x2="0" y2="-140" stroke="#b3a77f" stroke-width="1"/><text class="wo" transform="rotate(${k*ST}) translate(0,-126)" text-anchor="middle" dominant-baseline="middle">${A[k]}</text>`;
+ g+='<g id="wi"><circle r="112" fill="#d9a94e" stroke="#7a5a1c" stroke-width="2.5"/><circle r="68" fill="#f3e3b3" stroke="#7a5a1c" stroke-width="2"/>';
+ for(let j=0;j<26;j++)g+=`<line transform="rotate(${(j+.5)*ST})" x1="0" y1="-68" x2="0" y2="-112" stroke="#7a5a1c" stroke-width="1"/>`;
+ g+='<circle transform="translate(0,-90)" r="11" fill="#a62b22"/>';
+ for(let j=0;j<26;j++)g+=`<text class="${j?"wi":"wa"}" transform="rotate(${j*ST}) translate(0,-90)" text-anchor="middle" dominant-baseline="middle">${A[j]}</text>`;
+ g+='</g><circle r="44" fill="#1d170b" stroke="#b8893a" stroke-width="2"/><text class="wc" y="-4" text-anchor="middle">CIFRARIO</text><text class="wc" y="10" text-anchor="middle">DI CESARE</text><polygon points="0,-150 -8,-136 8,-136" fill="#a62b22" stroke="#1d170b" stroke-width="1.5"/>';
+ $("wh").innerHTML=g}
+function setShift(n,inst){shift=Math.max(0,Math.min(25,n));$("wr").value=shift;$("wn").textContent=shift;$("dec1").textContent=caesar(CT1,-shift);
+ $("wr2").innerHTML="Con spostamento <b>"+shift+"</b>: la lettera cifrata <b>"+A[shift]+"</b> diventa <b>A</b>, la "+A[(shift+1)%26]+" diventa B, e così via.";
+ const from=ang,to=shift*ST,t0=performance.now();if(inst){ang=to;$("wi").setAttribute("transform","rotate("+ang+")");return}(function f(t){const k=Math.min(1,(t-t0)/450);ang=from+(to-from)*(1-Math.pow(1-k,3));$("wi").setAttribute("transform","rotate("+ang+")");if(k<1)requestAnimationFrame(f)})(t0)}
+function startS1(){if(s1started)return;s1started=true;drawWheel();typeInto($("ct1"),CT1,35);setShift(0)}
+{const svg=$("wh");let drag=null;const angAt=e=>{const r=svg.getBoundingClientRect();return Math.atan2(e.clientY-(r.top+r.height/2),e.clientX-(r.left+r.width/2))*180/Math.PI};
+ svg.addEventListener("pointerdown",e=>{drag={a:angAt(e),s:shift};try{svg.setPointerCapture(e.pointerId)}catch(x){}});
+ svg.addEventListener("pointermove",e=>{if(!drag)return;const d=((angAt(e)-drag.a+540)%360)-180;setShift(drag.s+Math.round(d/ST),true)});
+ svg.addEventListener("pointerup",()=>{drag=null});svg.addEventListener("pointercancel",()=>{drag=null})}
+$("wr").oninput=e=>setShift(+e.target.value);$("wm").onclick=()=>setShift(shift-1);$("wp").onclick=()=>setShift(shift+1);
+let t1=0;
+$("c1").onclick=()=>{const v=$("a1").value.trim().toUpperCase();
+ if(v==="LUNA"){$("f1").innerHTML='<div class="fb g">✔ Il messaggio dice: <b>«'+PL1+'»</b>. La chiave del prossimo cifrario è LUNA.</div>';$("c1").disabled=true;
+  quiz($("q1"),[{h:"Quante chiavi possibili ha il cifrario di Cesare con l’alfabeto di 26 lettere?",o:[
+   {t:"Più di un miliardo: è impossibile provarle tutte.",e:"Sono pochissime. Hai appena girato il disco: bastava provare le posizioni una per una."},
+   {t:"Solo 25: un attaccante le prova tutte in pochi secondi.",ok:1,e:"Esatto. Con 25 spostamenti possibili (il 26º lascia il testo uguale) il cifrario si rompe a mano. È la stessa idea della forza bruta del Livello 2: pochi tentativi da fare, nessuna protezione."},
+   {t:"Una sola, che dev’essere segreta.",e:"Gli spostamenti possibili sono 25, e provarli tutti richiede pochi minuti anche a mano."}]}],()=>{lamp(0);reveal("s2");startS2()})}
+ else{t1++;$("f1").innerHTML='<div class="fb b">✖ Non è la parola giusta.'+(t1>=3?" Suggerimento: gira il disco finché compaiono parole vere in italiano, poi leggi l’ultima.":"")+'</div>'}};
+
+/* ---------- prova II · Vigenère ---------- */
+const PL2="ARCHIVIO",KEY="LUNA",CT2=vig(PL2,KEY,1);let s2started=false;
+function startS2(){if(s2started)return;s2started=true;typeInto($("ct2"),CT2,50);
+ let t='<table class="vg"><tr><th></th>'+[...A].map(c=>"<th>"+c+"</th>").join("")+"</tr>";
+ for(let r=0;r<26;r++){t+="<tr><th>"+A[r]+"</th>"+[...A].map((_,c)=>"<td>"+A[(r+c)%26]+"</td>").join("")+"</tr>"}
+ $("vgw").innerHTML=t+"</table>"}
+function hl(i){const t=$("vgw").querySelector("table");if(!t)return;t.querySelectorAll(".hr,.hc,.hh").forEach(x=>x.classList.remove("hr","hc","hh"));
+ const r=A.indexOf(KEY[i%KEY.length]),c=(A.indexOf(CT2[i])-r+26)%26;
+ [...t.rows[r+1].cells].slice(1).forEach(x=>x.classList.add("hr"));t.rows[r+1].cells[c+1].classList.replace("hr","hc");t.rows[0].cells[c+1].classList.add("hh")}
+function useKey(){const v=$("kw").value.trim().toUpperCase();
+ if(v!==KEY){$("fk").innerHTML='<div class="fb b">✖ Non è la chiave giusta. Rileggi il messaggio che hai decifrato nella prova precedente.</div>';return}
+ $("fk").innerHTML="";$("ck").disabled=true;$("kw").disabled=true;
+ $("al").innerHTML=[...CT2].map((c,i)=>`<div class="col"><div class="c">${c}</div><div class="k">${KEY[i%4]}</div><div class="n">−${A.indexOf(KEY[i%4])}</div><input type="text" maxlength="1" data-i="${i}" autocomplete="off" aria-label="Lettera ${i+1}"></div>`).join("");
+ $("al").classList.remove("hidden");$("dt").classList.remove("hidden");
+ $("f2").innerHTML='<p class="fb">Per ogni colonna trovi: la lettera cifrata (in rosso), sotto la lettera della chiave, e di quanti posti tornare indietro. Scrivi la lettera in chiaro nella casella: puoi calcolarla o leggerla sulla tavola.</p>';$("dt").open=true;
+ $("al").onfocusin=e=>{if(e.target.tagName==="INPUT")hl(+e.target.dataset.i)}}
+$("ck").onclick=useKey;$("kw").addEventListener("keydown",e=>{if(e.key==="Enter")useKey()});
+$("al").oninput=e=>{const inp=e.target;if(inp.tagName!=="INPUT")return;inp.value=inp.value.toUpperCase();
+ const i=+inp.dataset.i;inp.className=inp.value?(inp.value===PL2[i]?"ok":"no"):"";
+ if(inp.value===PL2[i]&&inp.nextElementSibling===null){const nx=inp.closest(".col").nextElementSibling;if(nx)nx.querySelector("input").focus()}
+ if([...document.querySelectorAll("#al input")].every((x,k)=>x.value===PL2[k])&&!$("q2").innerHTML){
+  $("f2").innerHTML='<div class="fb g">✔ Il messaggio dice: <b>'+PL2+'</b>. È il nome del file che contiene le password del server.</div>';
+  quiz($("q2"),[
+   {h:"Perché Vigenère è più forte di Cesare?",o:[
+    {t:"Perché la stessa lettera viene cifrata in modi diversi a seconda della posizione, quindi contare le lettere non basta.",ok:1,e:"Esatto. Con Cesare la E diventa sempre la stessa lettera, e contando le frequenze si indovina il testo. Con Vigenère la E può diventare lettere diverse."},
+    {t:"Perché usa più lettere nell’alfabeto.",e:"L’alfabeto è lo stesso. Cambia il modo di usare la chiave: gli spostamenti variano da lettera a lettera."},
+    {t:"Perché è stato inventato più di recente.",e:"Non conta quando è nato: conta come è fatto. Vigenère è del Cinquecento e nell’Ottocento fu comunque rotto."}]},
+   {h:"Se la chiave è LU invece di LUNAROSSA, il messaggio è…",o:[
+    {t:"Più facile da rompere, perché la chiave si ripete molto spesso.",ok:1,e:"Esatto. Una chiave corta si ripete e lascia tracce; una lunga rende il lavoro molto più difficile. È la stessa regola delle password: la lunghezza conta."},
+    {t:"Più difficile da rompere, perché è più semplice.",e:"Al contrario: la semplicità aiuta chi attacca."},
+    {t:"Uguale: la chiave non conta.",e:"Conta moltissimo: è l’unica cosa segreta."}]}
+  ],()=>{lamp(1);reveal("s3");startS3()})}};
+
+/* ---------- prova III · hash ---------- */
+const cy=(s,seed)=>{let h1=0xdeadbeef^seed,h2=0x41c6ce57^seed;for(let i=0;i<s.length;i++){const c=s.charCodeAt(i);h1=Math.imul(h1^c,2654435761);h2=Math.imul(h2^c,1597334677)}
+ h1=Math.imul(h1^(h1>>>16),2246822507)^Math.imul(h2^(h2>>>13),3266489909);h2=Math.imul(h2^(h2>>>16),2246822507)^Math.imul(h1^(h1>>>13),3266489909);
+ return (h2>>>0).toString(16).padStart(8,"0")+(h1>>>0).toString(16).padStart(8,"0")};
+async function H(t){try{if(window.crypto&&crypto.subtle){const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(t));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("")}}catch(e){}
+ return [0,1,2,3].map(i=>cy(t,i)).join("")}
+let TGT="",s3started=false;
+async function lab(){const a=await H($("ha").value),b=await H($("hb").value);let d=0,ha="",hb="";
+ for(let i=0;i<64;i++){const x=a[i]!==b[i];if(x)d++;ha+=x?"<b>"+a[i]+"</b>":a[i];hb+=x?"<b>"+b[i]+"</b>":b[i]}
+ $("hao").innerHTML=ha;$("hbo").innerHTML=hb;
+ $("hd").innerHTML=a===b?"Testi identici: stessa impronta.":"Cambia poco nel testo, cambia tutto nell’impronta: <b>"+d+" caratteri su 64</b> sono diversi (sottolineati).";}
+$("ha").oninput=lab;$("hb").oninput=lab;
+async function startS3(){if(s3started)return;s3started=true;TGT=await H("briciola");$("tg").textContent=TGT;lab()}
+let g3=0;
+async function tryGuess(){const v=$("gs").value.trim();if(!v)return;const h=await H(v),go=$("go");go.classList.remove("hidden");
+ let out="";for(let i=0;i<64;i++)out+=h[i]===TGT[i]?h[i]:"<b>"+h[i]+"</b>";go.innerHTML=out;
+ if(h===TGT){$("gb").disabled=true;$("f3").innerHTML='<div class="fb g">✔ Le impronte coincidono: la password era <b>'+v.toLowerCase()+'</b>, il nome della gatta di Elia. Non hai “decifrato” l’hash: hai provato le parole una alla volta, finché una ha dato la stessa impronta. È quello che fa un attaccante.</div><div class="note"><b>Un problema, e la soluzione.</b> Se due utenti scelgono la stessa password, hanno anche la stessa impronta, e basta scoprirne una per scoprirle tutte. Per evitarlo i siti aggiungono a ogni password un pezzetto di testo casuale, il <b>salt</b> (“sale”), prima di calcolare l’hash: stessa password, impronte diverse.</div>';
+  quiz($("q3"),[
+   {h:"Perché un sito serio conserva l’hash della password e non la password?",o:[
+    {t:"Se il database viene rubato, gli attaccanti trovano impronte da cui non si risale alla password.",ok:1,e:"Esatto. L’hash non si inverte: l’attaccante può solo provare password una alla volta, come hai fatto tu."},
+    {t:"Così l’amministratore può leggerla se l’utente la dimentica.",e:"Proprio il contrario: nessuno, nemmeno il sito, deve poterla leggere. Se la dimentichi la reimposti."},
+    {t:"Perché l’hash occupa meno spazio.",e:"Non è questo il motivo: conta la sicurezza, non lo spazio."}]},
+   {h:"Perché lo stesso attacco non funziona contro «x7$Kq2!pLm9#Vz4»?",o:[
+    {t:"Perché non è in nessuna lista di parole e le combinazioni sono troppe da provare.",ok:1,e:"Esatto. Hai trovato «briciola» perché era una parola della vita di Elia. Una stringa lunga e casuale non è in nessun elenco (lo hai visto nel Livello 2)."},
+    {t:"Perché l’hash di quella password è più lungo.",e:"Gli hash sono sempre lunghi uguale: conta quanto è facile indovinare la password di partenza."},
+    {t:"Perché contiene simboli, che non si possono calcolare.",e:"Gli hash si calcolano su qualunque testo. Il punto è che la stringa è lunga e imprevedibile."}]},
+   {h:"A cosa serve il salt?",o:[
+    {t:"È una stringa casuale aggiunta a ogni password prima dell’hash: due utenti con la stessa password hanno hash diversi.",ok:1,e:"Esatto. Rende inutili le tabelle di hash già calcolate e costringe l’attaccante a lavorare password per password."},
+    {t:"Serve a decifrare l’hash più in fretta.",e:"Il salt non decifra niente: rende più difficile l’attacco."},
+    {t:"È la chiave con cui si apre l’hash.",e:"Gli hash non hanno chiave e non si aprono: sono a senso unico."}]}
+  ],()=>{lamp(2);reveal("s4");startS4()})}
+ else if(v.toLowerCase()==="briciola"){$("f3").innerHTML='<div class="fb b">Quasi! Hai trovato la parola giusta, ma l’impronta è diversa: una sola lettera maiuscola o minuscola cambia tutto l’hash. Riprova esattamente come l’ha scritta Elia, tutta minuscola.</div>'}
+ else{g3++;$("f3").innerHTML='<div class="fb b">✖ Le impronte non coincidono'+(g3>=3?". Prova le altre parole degli appunti: una alla volta. Ricordi il nome di chi tiene compagnia a Elia la sera?":".")+'</div>'}}
+$("gb").onclick=tryGuess;$("gs").addEventListener("keydown",e=>{if(e.key==="Enter")tryGuess()});
+
+/* ---------- prova IV · chiavi ---------- */
+let s4started=false;
+const CARDS=[
+ ["🔑","Elia crea due chiavi: una pubblica e una privata.","Le due chiavi sono collegate: quello che una chiude, solo l’altra può aprirlo."],
+ ["📢","Elia dà a tutti la chiave pubblica (il lucchetto aperto). La privata la tiene solo lei.","La pubblica si può diffondere senza rischi: serve solo a chiudere."],
+ ["🔒","Tu scrivi il messaggio e lo chiudi con la chiave pubblica di Elia.","Ora il messaggio è illeggibile per chiunque."],
+ ["🕵️","Il messaggio viaggia su Internet. Una spia lo intercetta ma non riesce ad aprirlo.","La spia ha la chiave pubblica come tutti, ma non basta: serve la privata."],
+ ["📬","Elia lo apre con la sua chiave privata e lo legge.","Solo lei ha quella chiave: il messaggio è arrivato segreto."]];
+function startS4(){if(s4started)return;s4started=true;let next=0;const order=CARDS.map((_,i)=>i).sort(()=>Math.random()-.5);
+ const render=()=>{$("ord").innerHTML=CARDS.slice(0,next).map((c,i)=>`<div class="ocard done"><span>${i+1}</span>${c[0]} ${c[1]}<small>${c[2]}</small></div>`).join("")+order.filter(i=>i>=next).map(i=>`<button class="ocard" data-i="${i}">${CARDS[i][0]} ${CARDS[i][1]}</button>`).join("")};
+ render();
+ $("ord").onclick=e=>{const b=e.target.closest("button.ocard");if(!b)return;const i=+b.dataset.i;
+  if(i===next){next++;$("ordfb").innerHTML="";render();
+   if(next===CARDS.length){$("ordfb").innerHTML='<div class="fb g">✔ Hai ricostruito il viaggio: il messaggio è rimasto segreto anche con una spia in mezzo.</div>';$("qh4").classList.remove("hidden");quizS4()}}
+  else{b.classList.add("shake");setTimeout(()=>b.classList.remove("shake"),400);$("ordfb").innerHTML='<div class="fb b">✖ Non è ancora il momento di questa carta. Pensa: cosa deve essere già successo prima?</div>'}}}
+function quizS4(){quiz($("q4"),[
+  {h:"Un messaggio è stato chiuso con la chiave pubblica di Elia. Chi può aprirlo?",o:[
+   {t:"Solo Elia, con la sua chiave privata.",ok:1,e:"Esatto. La chiave pubblica serve solo a chiudere; per aprire serve quella privata, che ha solo lei."},
+   {t:"Chiunque abbia la chiave pubblica.",e:"La chiave pubblica ce l’hanno tutti, ma serve soltanto a chiudere. Se bastasse per aprire, il metodo non servirebbe a niente."},
+   {t:"Chi ha scritto il messaggio.",e:"Nemmeno chi lo ha scritto può riaprirlo: dopo averlo chiuso con il lucchetto di Elia, solo lei ha la chiave."}]},
+  {h:"Un amico inventa un cifrario segreto, che nessun esperto ha mai controllato, e ti propone di usarlo. Ti fidi?",o:[
+   {t:"No: meglio i metodi pubblici, studiati da migliaia di esperti che hanno provato a romperli.",ok:1,e:"Esatto. I cifrari seri sono pubblici: il segreto sta nella chiave, non nel metodo. Uno inventato in casa può avere difetti che gli esperti troverebbero subito."},
+   {t:"Sì: se il metodo è segreto, nessuno può romperlo.",e:"È un errore comune. Un metodo mai controllato da nessuno può nascondere difetti facili da sfruttare."},
+   {t:"Sì, basta che la chiave sia lunga.",e:"Anche con una chiave lunga, un metodo con difetti si rompe. La lunghezza della chiave da sola non basta."}]},
+  {h:"Con https il browser usa prima le chiavi pubblica e privata, e poi passa a una chiave segreta comune. Perché?",o:[
+   {t:"Le prime servono a mettersi d’accordo in sicurezza sulla chiave segreta; quella segreta poi è molto più veloce per scambiare i dati.",ok:1,e:"Esatto. Ognuna fa quello in cui è brava: le chiavi pubblica e privata risolvono lo scambio, la chiave comune è veloce."},
+   {t:"Perché la chiave comune è più sicura di quella pubblica.",e:"Non è più sicura: è soltanto più veloce. La pubblica si usa solo per l’accordo iniziale."},
+   {t:"Per confondere chi spia.",e:"Non è questione di confondere: ognuna ha un compito preciso."}]},
+  {h:"Nel browser vedi il lucchetto 🔒 e “https://”. Cosa significa?",o:[
+   {t:"Che il collegamento tra te e il sito è cifrato: nessuno in mezzo può leggere. Non dice se il sito è onesto.",ok:1,e:"Esatto. Anche un sito truffa può avere il lucchetto: protegge la strada dei dati, non garantisce chi c’è dall’altra parte (lo vedrai nel prossimo livello)."},
+   {t:"Che il sito è sicuro e affidabile.",e:"No: un sito falso può avere il lucchetto. Garantisce solo la cifratura del collegamento."},
+   {t:"Che il sito non conserva i tuoi dati.",e:"Il lucchetto non dice niente su cosa il sito fa con i tuoi dati."}]}
+ ],()=>{lamp(3);reveal("s5")})}
+
+if(FORM_URL.startsWith("http"))$("lock").href=FORM_URL;else{$("warn").classList.remove("hidden");$("lock").onclick=e=>e.preventDefault()}
+</script>
+</body>
+</html>
